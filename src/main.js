@@ -16,8 +16,8 @@ const TARGET_VOLUME = 0.12
 const AUTOPLAY_VOLUME = 0.08
 const AUTOPLAY_DELAY_MS = 3000
 const FADE_MS = 2000
-const MIN_GAP_MS = 30_000
-const MAX_GAP_MS = 90_000
+const MIN_GAP_MS = 10_000
+const MAX_GAP_MS = 30_000
 
 const audio = new Audio()
 audio.preload = 'auto'
