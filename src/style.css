@@ -296,3 +296,23 @@ footer { padding: 3rem; border-top: 1px solid var(--border); display: flex; just
   border-color: var(--teal-glow);
   background: rgba(42,74,79,0.15);
 }
+.sound-hint {
+  position: fixed;
+  bottom: 2.05rem;
+  right: calc(1.5rem + 2.4rem + 0.85rem);
+  z-index: 200;
+  font-family: "Fragment Mono", monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  pointer-events: none;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(6px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.sound-hint.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}

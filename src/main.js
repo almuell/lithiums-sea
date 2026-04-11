@@ -71,6 +71,7 @@ function scheduleNext() {
 audio.addEventListener('ended', scheduleNext)
 
 function start() {
+  hideHint()
   if (started || !enabled) return
   started = true
   playNext()
@@ -91,6 +92,7 @@ document.body.appendChild(toggle)
 toggle.addEventListener('click', (e) => {
   // Don't let this click also trigger the document-level start() listener.
   e.stopPropagation()
+  hideHint()
   enabled = !enabled
   toggle.textContent = enabled ? '🔊' : '🔇'
   if (!enabled) {
@@ -105,3 +107,25 @@ toggle.addEventListener('click', (e) => {
     scheduleNext()
   }
 })
+
+// ---------- First-interaction hint ----------
+
+const hint = document.createElement('div')
+hint.className = 'sound-hint'
+hint.textContent = 'click anywhere for sound'
+document.body.appendChild(hint)
+
+// Slight delay so the page settles before the hint fades in.
+const hintShowTimer = setTimeout(() => {
+  hint.classList.add('is-visible')
+}, 1500)
+
+let hintHidden = false
+function hideHint() {
+  if (hintHidden) return
+  hintHidden = true
+  clearTimeout(hintShowTimer)
+  hint.classList.remove('is-visible')
+  // Wait out the fade transition (0.6s) before removing from DOM.
+  setTimeout(() => hint.remove(), 700)
+}
