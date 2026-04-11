@@ -7,7 +7,7 @@ video.playbackRate = 0.4
 // ---------- Ambient audio system ----------
 
 const TRACKS = [
-  { src: '/audio/Radiant Somber Web.mp3', volume: 0.3 },
+  { src: '/audio/Radiant Somber Web.mp3', volume: 0.45 },
   { src: '/audio/Ah 3.0.mp3', volume: 0.12 },
   { src: '/audio/Ah 2.0.mp3', volume: 0.12 },
   { src: '/audio/Ah 1.0.mp3', volume: 0.12 },
