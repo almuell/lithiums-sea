@@ -87,12 +87,12 @@ nav::after {
     radial-gradient(ellipse 80% 60% at 60% 40%, rgba(42,74,79,0.18) 0%, transparent 65%),
     radial-gradient(ellipse 40% 40% at 20% 70%, rgba(122,79,58,0.08) 0%, transparent 60%),
     linear-gradient(160deg, #060608 0%, #0a0c14 50%, #060810 100%);
-  z-index: 1;
+  z-index: 0;
 }
 .hero-video-wrap {
   position: absolute;
   inset: 0;
-  z-index: 0;
+  z-index: 1;
   overflow: hidden;
 }
 .hero-video-wrap video {
