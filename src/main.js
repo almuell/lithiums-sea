@@ -7,12 +7,11 @@ video.playbackRate = 0.4
 // ---------- Ambient audio system ----------
 
 const TRACKS = [
-  '/audio/Radiant Somber Web.mp3',
-  '/audio/Ah 3.0.mp3',
-  '/audio/Ah 2.0.mp3',
-  '/audio/Ah 1.0.mp3',
+  { src: '/audio/Radiant Somber Web.mp3', volume: 0.3 },
+  { src: '/audio/Ah 3.0.mp3', volume: 0.12 },
+  { src: '/audio/Ah 2.0.mp3', volume: 0.12 },
+  { src: '/audio/Ah 1.0.mp3', volume: 0.12 },
 ]
-const TARGET_VOLUME = 0.12
 const AUTOPLAY_VOLUME = 0.08
 const AUTOPLAY_DELAY_MS = 3000
 const FADE_MS = 2000
@@ -27,7 +26,7 @@ let started = false
 let lastIndex = -1
 let nextTimer = null
 let fadeRaf = null
-let currentVolume = TARGET_VOLUME
+let currentVolume = 0.12
 
 function pickNextIndex() {
   if (TRACKS.length <= 1) return 0
@@ -54,7 +53,9 @@ function playNext() {
   if (!enabled) return
   const i = pickNextIndex()
   lastIndex = i
-  audio.src = encodeURI(TRACKS[i])
+  const track = TRACKS[i]
+  currentVolume = track.volume
+  audio.src = encodeURI(track.src)
   audio.volume = 0
   const p = audio.play()
   if (p && typeof p.then === 'function') {
@@ -90,9 +91,12 @@ document.addEventListener('click', start, { once: true })
 // flow above; nothing breaks for first-time visitors.
 function tryAutoplayStart() {
   if (started || !enabled) return
+  // Autoplay path uses a fixed lower volume regardless of which track gets
+  // picked, since we don't yet know if the user actually wants sound.
+  // Subsequent (gesture/scheduled) clips will use their per-track volumes.
   currentVolume = AUTOPLAY_VOLUME
   const i = pickNextIndex()
-  audio.src = encodeURI(TRACKS[i])
+  audio.src = encodeURI(TRACKS[i].src)
   audio.volume = 0
   const p = audio.play()
 
@@ -110,9 +114,8 @@ function tryAutoplayStart() {
 
   if (p && typeof p.then === 'function') {
     p.then(handleSuccess).catch(() => {
-      // Autoplay was blocked. Restore the gesture-volume default so the
-      // eventual gesture flow plays at the normal 0.12 instead of 0.08.
-      currentVolume = TARGET_VOLUME
+      // Autoplay was blocked. No rollback needed: the next playNext() call
+      // will reset currentVolume from the picked track's volume property.
     })
   } else {
     handleSuccess()
