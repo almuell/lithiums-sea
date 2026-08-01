@@ -206,11 +206,10 @@ section { padding: 8rem 3rem; position: relative; }
 .stream-link:hover { color: var(--teal-glow); border-color: var(--teal-glow); }
 
 /* Featured-video card (was inline-styled in prototype) */
-.video-card { margin: 2rem 0; padding: 1.5rem; border: 1px solid var(--border); display: flex; align-items: center; gap: 1.5rem; }
-.video-card-icon { width: 48px; height: 48px; border: 1px solid var(--teal-dim); display: flex; align-items: center; justify-content: center; flex-shrink: 0; opacity: 0.4; }
-.video-card-icon::before { content: ""; width: 0; height: 0; border-style: solid; border-width: 8px 0 8px 14px; border-color: transparent transparent transparent #3d6b72; margin-left: 3px; }
-.video-card-label { font-family: "Fragment Mono", monospace; font-size: 0.55rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--teal-glow); margin-bottom: 0.3rem; }
-.video-card-text { font-size: 0.9rem; color: var(--text-dim); font-style: italic; }
+.video-block { margin: 2rem 0; }
+.video-label { font-family: "Fragment Mono", monospace; font-size: 0.55rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--teal-glow); margin-bottom: 0.8rem; }
+.video-embed { position: relative; aspect-ratio: 16 / 9; border: 1px solid var(--border); background: var(--black); }
+.video-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; }
 
 /* BIO */
 #bio { background: rgba(6,6,8,0.84); border-top: 1px solid var(--border); }
