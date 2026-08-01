@@ -4,6 +4,20 @@ import './style.css'
 const video = document.querySelector('.hero-video-wrap video')
 video.playbackRate = 0.4
 
+// Browsers (esp. Chrome in background tabs, iOS in low-power mode) pause muted
+// autoplay videos and don't always resume them. Nudge it back to life whenever
+// the page becomes visible/focused or on first interaction.
+function resumeHeroVideo() {
+  if (video.paused) video.play().catch(() => {})
+}
+document.addEventListener('visibilitychange', () => {
+  if (!document.hidden) resumeHeroVideo()
+})
+window.addEventListener('focus', resumeHeroVideo)
+window.addEventListener('pageshow', resumeHeroVideo)
+window.addEventListener('scroll', resumeHeroVideo, { once: true, passive: true })
+document.addEventListener('click', resumeHeroVideo, { once: true })
+
 // ---------- Ambient audio system ----------
 
 const TRACKS = [
