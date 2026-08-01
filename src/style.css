@@ -356,3 +356,48 @@ footer { padding: 3rem; border-top: 1px solid var(--border); display: flex; just
   opacity: 1;
   transform: translateX(0);
 }
+
+/* LIGHTBOX */
+.edition-art { cursor: zoom-in; }
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  background: rgba(6,6,8,0.92);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+  cursor: zoom-out;
+}
+.lightbox.is-open { opacity: 1; pointer-events: auto; }
+.lightbox img {
+  max-width: min(92vw, 700px);
+  max-height: 88vh;
+  border: 1px solid var(--border);
+  box-shadow: 0 40px 90px rgba(0,0,0,0.7);
+}
+.lightbox-close {
+  position: absolute;
+  top: 1.5rem; right: 2rem;
+  background: none;
+  border: none;
+  color: var(--text-mid);
+  font-family: "Fragment Mono", monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.lightbox-close:hover { color: var(--text-bright); }
+
+/* VIDEO-DRAMATURGIE: Durchschimmern pro Sektion */
+#bio { background: rgba(6,6,8,0.8); }
+#editions { background: rgba(15,17,24,0.93); }
+#epk { background: rgba(10,12,16,0.9); }
+#contact { background: rgba(6,6,8,0.78); }

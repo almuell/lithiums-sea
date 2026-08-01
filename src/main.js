@@ -188,3 +188,36 @@ function hideHint() {
   // Wait out the fade transition (0.6s) before removing from DOM.
   setTimeout(() => hint.remove(), 700)
 }
+
+// ---------- Editions lightbox ----------
+
+const lightbox = document.createElement('div')
+lightbox.className = 'lightbox'
+lightbox.innerHTML = '<button class="lightbox-close" type="button">Close</button><img alt="" />'
+document.body.appendChild(lightbox)
+const lightboxImg = lightbox.querySelector('img')
+
+function openLightbox(src, alt) {
+  lightboxImg.src = src
+  lightboxImg.alt = alt || ''
+  lightbox.classList.add('is-open')
+}
+function closeLightbox() {
+  lightbox.classList.remove('is-open')
+}
+
+document.querySelectorAll('.edition-art').forEach((art) => {
+  const img = art.querySelector('img')
+  if (!img) return
+  art.addEventListener('click', () => openLightbox(img.src, img.alt))
+  art.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault()
+      openLightbox(img.src, img.alt)
+    }
+  })
+})
+lightbox.addEventListener('click', closeLightbox)
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeLightbox()
+})
