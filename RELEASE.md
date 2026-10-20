@@ -14,9 +14,12 @@ In `index.html` → `#music`:
    `<a href="LINK" target="_blank" rel="noopener" class="stream-link">`.
    Drop platforms that have no link.
 4. Track duration in the tracklist (`—:——`).
-5. Cover for the distributor must be 3000 × 3000 px. The site uses a
-   1300 × 1300 crop (`public/masters-of-war-cover.jpg`) — fine for the web,
-   not for the upload. Keep a full-res master elsewhere.
+5. Artwork: the current cover (`public/masters-of-war-cover.jpg`, blue
+   drone frame) is a **placeholder**. Felix Kiessling delivers the final
+   artwork for the release. Then: replace the file (and `public/og-image.jpg`,
+   bump `?v=` on `og:image`), and remove the `.album-art-name` overlay in
+   `index.html` if the artwork already carries the band name. The distributor
+   needs 3000 × 3000 px; the site only needs ~1300.
 6. The previous OG image is kept as `public/og-image-lucky13.jpg`.
 
 ## Lucky 13 — parked block
