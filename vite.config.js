@@ -6,6 +6,9 @@ const page = (file) => fileURLToPath(new URL(file, import.meta.url))
 
 export default defineConfig({
   build: {
+    // Never inline assets as data: URIs — the Content-Security-Policy in
+    // vercel.json only allows fonts and media from our own origin.
+    assetsInlineLimit: 0,
     rollupOptions: {
       input: {
         main: page('./index.html'),
