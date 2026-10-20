@@ -204,6 +204,11 @@ section { padding: 8rem 3rem; position: relative; }
 .stream-links { display: flex; gap: 1.5rem; margin-top: 2.5rem; flex-wrap: wrap; }
 .stream-link { font-family: "Fragment Mono", monospace; font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-mid); text-decoration: none; border-bottom: 1px solid var(--border); padding-bottom: 0.2rem; transition: color 0.3s, border-color 0.3s; }
 .stream-link:hover { color: var(--teal-glow); border-color: var(--teal-glow); }
+/* Pre-release state: links visible but greyed out and inert. */
+.stream-soon { font-family: "Fragment Mono", monospace; font-size: 0.55rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--teal-glow); margin-top: 2.5rem; }
+.stream-soon + .stream-links { margin-top: 1rem; }
+.stream-links.is-soon .stream-link { color: var(--text-dim); border-color: transparent; cursor: default; }
+.stream-links.is-soon .stream-link:hover { color: var(--text-dim); border-color: transparent; }
 
 /* Featured-video card (was inline-styled in prototype) */
 .video-block { margin: 2rem 0; }
