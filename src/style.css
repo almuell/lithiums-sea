@@ -297,6 +297,12 @@ section { padding: 8rem 3rem; position: relative; }
 .form-input::placeholder, .form-textarea::placeholder { color: var(--text-dim); font-style: italic; }
 .form-submit { align-self: flex-start; background: transparent; border: 1px solid var(--teal-dim); color: var(--text-mid); font-family: "Fragment Mono", monospace; font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; padding: 1rem 2rem; cursor: crosshair; transition: all 0.3s; margin-top: 0.5rem; }
 .form-submit:hover { border-color: var(--teal-glow); color: var(--teal-glow); background: rgba(42,74,79,0.05); }
+.form-submit:disabled { opacity: 0.5; cursor: wait; }
+.form-botcheck { display: none; }
+.form-status { min-height: 1.2em; margin: 0; font-family: "Fragment Mono", monospace; font-size: 0.6rem; letter-spacing: 0.12em; color: var(--text-mid); }
+.form-status[data-kind="ok"] { color: var(--teal-glow); }
+.form-status[data-kind="error"] { color: var(--text); }
+.form-status a { color: var(--teal-glow); }
 
 /* FOOTER */
 footer { padding: 3rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; background: rgba(6,6,8,0.9); }

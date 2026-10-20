@@ -155,13 +155,13 @@
             way twice.
           </p>
           <div class="edition-offers">
-            <a class="edition-offer" href="#contact">
+            <a class="edition-offer" href="#contact" data-subject="Print — The Radiant Somber">
               <span class="offer-type">Print</span>
               <span class="offer-detail">Edition of 13 · signed &amp; numbered</span>
               <span class="offer-count">available</span>
               <span class="offer-price">€35</span>
             </a>
-            <a class="edition-offer" href="#contact">
+            <a class="edition-offer" href="#contact" data-subject="Original — The Radiant Somber">
               <span class="offer-type">Original</span>
               <span class="offer-detail">1/1 · unique</span>
               <span class="offer-count">available</span>
@@ -206,27 +206,34 @@
 
     <section id="contact">
       <div class="contact-wrap">
-        <form class="contact-form">
+        <form class="contact-form" novalidate>
           <div class="form-field">
-            <label class="form-label">Name</label>
-            <input class="form-input" type="text" placeholder="Your name" />
+            <label class="form-label" for="cf-name">Name</label>
+            <input class="form-input" id="cf-name" name="name" type="text" placeholder="Your name" autocomplete="name" maxlength="120" required />
           </div>
           <div class="form-field">
-            <label class="form-label">Email</label>
-            <input class="form-input" type="email" placeholder="your@email.com" />
+            <label class="form-label" for="cf-email">Email</label>
+            <input class="form-input" id="cf-email" name="email" type="email" placeholder="your@email.com" autocomplete="email" maxlength="200" required />
           </div>
           <div class="form-field">
-            <label class="form-label">Subject</label>
-            <input class="form-input" type="text" placeholder="Booking / Press / Other" />
+            <label class="form-label" for="cf-subject">Subject</label>
+            <input class="form-input" id="cf-subject" name="subject" type="text" placeholder="Booking / Press / Other" maxlength="200" />
           </div>
           <div class="form-field">
-            <label class="form-label">Message</label>
+            <label class="form-label" for="cf-message">Message</label>
             <textarea
               class="form-textarea"
+              id="cf-message"
+              name="message"
               placeholder="Tell us about your project or inquiry…"
+              maxlength="5000"
+              required
             ></textarea>
           </div>
+          <!-- Spam trap: hidden from people, bots tend to tick it. -->
+          <input class="form-botcheck" type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" />
           <button class="form-submit" type="submit">Send Message</button>
+          <p class="form-status" role="status" aria-live="polite"></p>
         </form>
       </div>
     </section>

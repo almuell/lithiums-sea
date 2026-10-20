@@ -221,3 +221,116 @@ lightbox.addEventListener('click', closeLightbox)
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closeLightbox()
 })
+
+// ---------- Contact form ----------
+//
+// Messages go through Web3Forms (https://web3forms.com) to the band inbox.
+// The access key is public by design (it only lets someone send mail *to* us),
+// so it can live in the client bundle. Set it via VITE_WEB3FORMS_KEY (Vercel →
+// Settings → Environment Variables) or paste it into the fallback below.
+// Without a key the form falls back to opening the visitor's mail app, so no
+// message is ever silently lost.
+
+const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_KEY || ''
+const CONTACT_EMAIL = 'contact@lithiumsea.net'
+
+const form = document.querySelector('.contact-form')
+const formStatus = form?.querySelector('.form-status')
+const formSubmit = form?.querySelector('.form-submit')
+const subjectInput = form?.querySelector('[name="subject"]')
+
+function setStatus(text, kind = '') {
+  if (!formStatus) return
+  formStatus.textContent = text
+  formStatus.dataset.kind = kind
+}
+
+function showFallback(prefix) {
+  if (!formStatus) return
+  formStatus.dataset.kind = 'error'
+  formStatus.textContent = `${prefix} Please write to us directly: `
+  const a = document.createElement('a')
+  a.href = `mailto:${CONTACT_EMAIL}`
+  a.textContent = CONTACT_EMAIL
+  formStatus.appendChild(a)
+}
+
+function openMailApp(data) {
+  const subject = data.subject || 'Inquiry via lithiumsea.net'
+  const body = `${data.message}\n\n— ${data.name} (${data.email})`
+  window.location.href =
+    `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+  setStatus('Your mail app should open with the message ready to send.')
+}
+
+// Edition offers jump to the form with the subject filled in.
+document.querySelectorAll('.edition-offer[data-subject]').forEach((offer) => {
+  offer.addEventListener('click', () => {
+    if (subjectInput && !subjectInput.value) subjectInput.value = offer.dataset.subject
+  })
+})
+
+form?.addEventListener('submit', async (e) => {
+  e.preventDefault()
+  if (formSubmit.disabled) return
+
+  if (!form.checkValidity()) {
+    form.reportValidity()
+    setStatus('Please fill in name, a valid email and your message.', 'error')
+    return
+  }
+
+  const fd = new FormData(form)
+  const data = {
+    name: fd.get('name').trim(),
+    email: fd.get('email').trim(),
+    subject: fd.get('subject').trim(),
+    message: fd.get('message').trim(),
+  }
+
+  // Bot ticked the hidden box: pretend all is well, send nothing.
+  if (fd.get('botcheck')) {
+    form.reset()
+    setStatus('Thank you — your message has been sent.', 'ok')
+    return
+  }
+
+  if (!WEB3FORMS_KEY) {
+    openMailApp(data)
+    return
+  }
+
+  formSubmit.disabled = true
+  const label = formSubmit.textContent
+  formSubmit.textContent = 'Sending…'
+  setStatus('')
+
+  try {
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify({
+        access_key: WEB3FORMS_KEY,
+        subject: `[lithiumsea.net] ${data.subject || 'New message'}`,
+        from_name: 'Lithium Sea Website',
+        replyto: data.email,
+        name: data.name,
+        email: data.email,
+        message: data.message,
+        botcheck: false,
+      }),
+    })
+    const json = await res.json().catch(() => ({}))
+    if (res.ok && json.success) {
+      form.reset()
+      setStatus('Thank you — your message has been sent.', 'ok')
+    } else {
+      showFallback('Sorry, that didn’t go through.')
+    }
+  } catch {
+    showFallback('Sorry, the message couldn’t be sent.')
+  } finally {
+    formSubmit.disabled = false
+    formSubmit.textContent = label
+  }
+})
