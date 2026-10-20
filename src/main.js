@@ -226,12 +226,13 @@ document.addEventListener('keydown', (e) => {
 //
 // Messages go through Web3Forms (https://web3forms.com) to the band inbox.
 // The access key is public by design (it only lets someone send mail *to* us),
-// so it can live in the client bundle. Set it via VITE_WEB3FORMS_KEY (Vercel →
-// Settings → Environment Variables) or paste it into the fallback below.
+// so it lives in the client bundle. Form "lithiumsea.net Kontakt" in the
+// Web3Forms account lithiumseamusic@gmail.com. VITE_WEB3FORMS_KEY overrides it.
 // Without a key the form falls back to opening the visitor's mail app, so no
 // message is ever silently lost.
 
-const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_KEY || ''
+const WEB3FORMS_KEY =
+  import.meta.env.VITE_WEB3FORMS_KEY || '649da257-2025-4cfd-ab60-dcdc0a811086'
 const CONTACT_EMAIL = 'contact@lithiumsea.net'
 
 const form = document.querySelector('.contact-form')
