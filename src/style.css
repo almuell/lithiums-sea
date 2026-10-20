@@ -219,9 +219,8 @@ section { padding: 8rem 3rem; position: relative; }
 /* BIO */
 #bio { background: rgba(6,6,8,0.84); border-top: 1px solid var(--border); }
 .bio-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 6rem; align-items: start; }
-.bio-photo { position: relative; aspect-ratio: 3/4; background: radial-gradient(ellipse at 40% 30%, rgba(42,74,79,0.25) 0%, transparent 60%), linear-gradient(160deg, #121a1c 0%, #0a0c0e 100%); overflow: hidden; }
-.bio-photo::before { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.08) 2px, rgba(0,0,0,0.08) 4px); }
-.bio-photo::after { content: "PRESS PHOTO"; position: absolute; bottom: 1.5rem; left: 1.5rem; font-family: "Fragment Mono", monospace; font-size: 0.5rem; letter-spacing: 0.2em; color: var(--text-dim); }
+.bio-photo { position: relative; aspect-ratio: 3/4; background: #f4f4f4; overflow: hidden; }
+.bio-photo img { display: block; width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.04); }
 .bio-photo-border { position: absolute; inset: 0; border: 1px solid var(--teal-dim); }
 .bio-name { font-size: clamp(3.5rem, 7vw, 6rem); font-weight: 300; color: #ffffff; line-height: 0.95; margin-bottom: 1.5rem; }
 .bio-name span { display: block; font-style: italic; color: var(--text-bright); }
