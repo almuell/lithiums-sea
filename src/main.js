@@ -265,8 +265,8 @@ function openMailApp(data) {
   setStatus('Your mail app should open with the message ready to send.')
 }
 
-// Edition offers jump to the form with the subject filled in.
-document.querySelectorAll('.edition-offer[data-subject]').forEach((offer) => {
+// Edition offers and press-kit requests jump to the form with the subject filled in.
+document.querySelectorAll('.edition-offer[data-subject], .epk-dl[data-subject]').forEach((offer) => {
   offer.addEventListener('click', () => {
     if (subjectInput && !subjectInput.value) subjectInput.value = offer.dataset.subject
   })
