@@ -6,6 +6,7 @@
 .legal p { font-size: 1.1rem; line-height: 1.8; color: var(--text); }
 .legal a { color: var(--text-bright); text-decoration: none; border-bottom: 1px solid var(--border); }
 .legal a:hover { border-color: var(--teal-glow); }
+.legal .legal-stand { margin-top: 3rem; }
 .legal-back { display: inline-block; margin-top: 4rem; font-family: "Fragment Mono", monospace; font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; }
 .todo { color: var(--copper-light); font-family: "Fragment Mono", monospace; font-size: 0.8rem; }
 @media (max-width: 700px) { .legal { padding: 8rem 1.5rem 4rem; } }

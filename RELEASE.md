@@ -24,6 +24,10 @@ out the streaming links. On release day, in `index.html` → `#music`:
    (Set the YouTube video from unlisted to public first. The embed loads
    content from YouTube/Google, so add a YouTube section to `datenschutz.html`
    — or use a click-to-load preview — before it goes live.)
+   Also extend the Content-Security-Policy in `vercel.json`: add
+   `frame-src https://www.youtube-nocookie.com` (and `img-src` for
+   `https://i.ytimg.com` if thumbnails are used), otherwise the browser
+   blocks the embed.
 3. Delete the `stream-soon` line and the `is-soon` class on `.stream-links`.
 4. Turn each `<span class="stream-link" aria-disabled="true">` into
    `<a href="LINK" target="_blank" rel="noopener" class="stream-link">`.
