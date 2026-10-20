@@ -10,6 +10,7 @@ export default defineConfig({
       input: {
         main: page('./index.html'),
         impressum: page('./impressum.html'),
+        datenschutz: page('./datenschutz.html'),
       },
     },
   },

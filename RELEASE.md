@@ -21,7 +21,9 @@ out the streaming links. On release day, in `index.html` → `#music`:
    </div>
    ```
 
-   (Set the YouTube video from unlisted to public first.)
+   (Set the YouTube video from unlisted to public first. The embed loads
+   content from YouTube/Google, so add a YouTube section to `datenschutz.html`
+   — or use a click-to-load preview — before it goes live.)
 3. Delete the `stream-soon` line and the `is-soon` class on `.stream-links`.
 4. Turn each `<span class="stream-link" aria-disabled="true">` into
    `<a href="LINK" target="_blank" rel="noopener" class="stream-link">`.

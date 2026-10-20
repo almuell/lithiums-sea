@@ -1,3 +1,4 @@
+import './fonts.js'
 import './style.css'
 
 // Hero video: slow-motion forward loop
