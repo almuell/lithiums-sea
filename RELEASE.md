@@ -1,15 +1,18 @@
 # Release notes
 
 The Music section (`index.html` → `#music`) shows one featured single. Right
-now that is **Masters of War** (Bob Dylan cover) with "Coming Soon". The
-**Lucky 13** block is parked below so it can go back in unchanged.
+now that is **Masters of War** (Bob Dylan cover), out on streaming
+**11.11.2026** (Amuse). The music video is linked from the "Watch the video"
+button (YouTube `BZdUq4jBg_k`). The **Lucky 13** block is parked below so it
+can go back in unchanged.
 
 ## Masters of War — release day
 
 In `index.html` → `#music`:
 
-1. Release tag: `Debut Single · Coming Soon` → `Debut Single · <year>`.
-2. Delete the `stream-soon` line and the `is-soon` class on `.stream-links`.
+1. Release tag: `Debut Single · Out 11.11.2026` → `Debut Single · 2026`.
+2. Delete the `stream-soon` line ("Streaming from 11.11.2026") and the
+   `is-soon` class on `.stream-links`.
 3. Turn each `<span class="stream-link" aria-disabled="true">` into
    `<a href="LINK" target="_blank" rel="noopener" class="stream-link">`.
    Drop platforms that have no link.
