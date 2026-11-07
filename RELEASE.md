@@ -1,28 +1,5 @@
 # Release notes
 
-## Temporary solo version (since 04.11.2026)
-
-The site currently runs without Sadie. The full duo version is backed up on
-the branch **`duo-version`** (commit f426858); to restore it, merge that
-branch back into `main` (or revert the `temp-solo` merge).
-
-Removed / changed in the solo version:
-
-- Bio: press photo cropped to Alexander only
-  (`public/press/lithium-sea-press-alex*.jpg`), members line
-  "Alexander Muell & guest vocalists", body text rewritten, tag
-  "Female-Fronted" dropped; meta description and alt text without her name.
-- Music: "Watch the video" link removed (the Masters of War video on YouTube
-  is untouched — set it to unlisted there if it should not be found).
-- Editions section removed (The Radiant Somber), incl. nav links on the legal
-  pages and `public/editions/radiant-somber.jpg`.
-- Press kit: press-photo download removed; the duo photo files are gone from
-  `public/press/`.
-- Ambient audio, sound toggle and "click anywhere for sound" hint switched off
-  (`src/main.js`); `public/audio/*.mp3` removed.
-- Unreferenced Lucky 13 images (`lucky13-cover.jpg`, `og-image-lucky13.jpg`)
-  removed from `public/`.
-
 The Music section (`index.html` → `#music`) shows one featured single. Right
 now that is **Masters of War** (Bob Dylan cover), out on streaming
 **11.11.2026** (Amuse). The music video is linked from the "Watch the video"
