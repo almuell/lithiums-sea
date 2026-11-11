@@ -305,6 +305,14 @@ section { padding: 8rem 3rem; position: relative; }
 .epk-dl-size { font-family: "Fragment Mono", monospace; font-size: 0.72rem; color: var(--text-dim); }
 .epk-right { border-left: 1px solid var(--border); padding-left: 4rem; }
 .epk-press-title { font-family: "Fragment Mono", monospace; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 2rem; }
+/* Press entries: source line, linked headline, one line saying what the piece is. */
+.press-list { list-style: none; }
+.press-item { padding-bottom: 1.8rem; margin-bottom: 1.8rem; border-bottom: 1px solid var(--border); }
+.press-item:last-child { padding-bottom: 0; margin-bottom: 0; border-bottom: none; }
+.press-source { font-family: "Fragment Mono", monospace; font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--copper-light); margin-bottom: 0.8rem; }
+.press-title { font-size: 1.35rem; line-height: 1.45; color: var(--text-bright); text-decoration: none; border-bottom: 1px solid var(--teal-dim); transition: color 0.3s, border-color 0.3s; }
+.press-title:hover, .press-title:focus-visible { color: var(--teal-text); border-color: var(--teal-glow); }
+.press-note { margin-top: 0.9rem; font-size: 0.95rem; line-height: 1.7; font-style: italic; color: var(--text-mid); }
 
 /* CONTACT */
 #contact { background: rgba(6,6,8,0.84); border-top: 1px solid var(--border); }
