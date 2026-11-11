@@ -204,7 +204,14 @@ section { padding: 8rem 3rem; position: relative; }
 .track-name { flex: 1; }
 .stream-links { display: flex; gap: 1.5rem; margin-top: 2.5rem; flex-wrap: wrap; }
 .stream-link { font-family: "Fragment Mono", monospace; font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-mid); text-decoration: none; border-bottom: 1px solid var(--border); padding-bottom: 0.2rem; transition: color 0.3s, border-color 0.3s; }
-.stream-link:hover { color: var(--teal-text); border-color: var(--teal-glow); }
+.stream-link:hover, .stream-link:focus-visible { color: var(--teal-text); border-color: var(--teal-glow); }
+/* Donation note under the stream links ("In support of" logo supplied by MAP). */
+.support { margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--border); max-width: 440px; }
+.support-logo { display: inline-block; }
+.support-logo img { display: block; width: 240px; max-width: 100%; height: auto; }
+.support-text { margin-top: 1.2rem; font-size: 0.9rem; line-height: 1.7; color: var(--text-mid); }
+.support-text a { color: var(--teal-text); text-decoration: none; border-bottom: 1px solid var(--teal-dim); transition: color 0.3s, border-color 0.3s; }
+.support-text a:hover, .support-text a:focus-visible { color: var(--text-bright); border-color: var(--teal-glow); }
 /* Pre-release state: links visible but greyed out and inert. */
 /* Music video: outlined like the contact form's submit button. */
 .watch-video { display: inline-flex; align-items: center; min-height: 2.75rem; margin-bottom: 2.5rem; padding: 0.9rem 1.8rem; border: 1px solid var(--teal-dim); color: var(--text); font-family: "Fragment Mono", monospace; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; transition: border-color 0.3s, color 0.3s, background 0.3s; }

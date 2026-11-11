@@ -1,12 +1,22 @@
 # Release notes
 
 The Music section (`index.html` → `#music`) shows one featured single. Right
-now that is **Masters of War** (Bob Dylan cover), out on streaming
+now that is **Masters of War** (Bob Dylan cover), out on streaming since
 **11.11.2026** (Amuse). The music video is linked from the "Watch the video"
 button (YouTube `BZdUq4jBg_k`). The **Lucky 13** block is parked below so it
 can go back in unchanged.
 
-## Masters of War — release day
+## Masters of War — release day (done 11.11.2026)
+
+Steps 1–4 below were applied on release day. The stream links go to Spotify,
+Apple Music, YouTube Music, Tidal, Deezer, Amazon Music and Soundcloud;
+Bandcamp was dropped (no release there). The Apple Music and Amazon links
+carry no country code, so they resolve in every storefront. Below the links
+sits the donation note (`.support`): all proceeds go to Medical Aid for
+Palestinians, with the "In support of" logo MAP supplied
+(`public/map-in-support-of.png`). The footer links to Instagram, Spotify and
+Soundcloud. The `stream-soon` / `is-soon` styles stay in `style.css` for the
+next pre-release block.
 
 In `index.html` → `#music`:
 
