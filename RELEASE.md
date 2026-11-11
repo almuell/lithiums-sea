@@ -26,12 +26,16 @@ In `index.html` → `#music`:
 3. Turn each `<span class="stream-link" aria-disabled="true">` into
    `<a href="LINK" target="_blank" rel="noopener" class="stream-link">`.
    Drop platforms that have no link.
-4. Track duration in the tracklist (`—:——`).
+4. Track duration in the tracklist: **done 10.11.2026** (5:23).
 5. Artwork: **done 27.10.2026** — final cover (burning globe, title + band
    name on the artwork) is in `public/masters-of-war-cover.jpg` (1300 px) and
    `public/og-image.jpg`; name overlay and colour grade removed, shown
    untouched. The distributor needs 3000 × 3000 px; the site only needs ~1300.
 6. The previous OG image is kept as `public/og-image-lucky13.jpg`.
+7. Donation line: **done 10.11.2026** — `.release-cause` under the stream
+   links says all proceeds go to Medical Aid for Palestinians and shows MAP's
+   "In support of" logo (`public/map-in-support-of.png`, sent by MAP for this
+   release). Take the block out again when Masters of War leaves the slot.
 
 ## Lucky 13 — parked block
 

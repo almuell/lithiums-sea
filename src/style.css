@@ -222,6 +222,11 @@ section { padding: 8rem 3rem; position: relative; }
 .stream-soon + .stream-links { margin-top: 1rem; }
 .stream-links.is-soon .stream-link { color: var(--text-dim); border-color: transparent; cursor: default; }
 .stream-links.is-soon .stream-link:hover { color: var(--text-dim); border-color: transparent; }
+/* Where the money goes: one line plus the charity's own "In support of" logo. */
+.release-cause { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border); max-width: 380px; }
+.release-cause-text { font-family: "Fragment Mono", monospace; font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; line-height: 1.8; color: var(--text-mid); }
+.release-cause-logo { display: inline-block; margin-top: 1rem; }
+.release-cause-logo img { display: block; width: 240px; max-width: 100%; height: auto; }
 
 /* Featured-video card (was inline-styled in prototype) */
 .video-block { margin: 2rem 0; }
